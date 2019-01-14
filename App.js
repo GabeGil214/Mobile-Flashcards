@@ -2,14 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import Deck from './components/Deck'
-import NewDeck from './components/NewDeck'
+import Dashboard from './components/Dashboard'
 
 const Stack = createStackNavigator({
-  Deck: {
-    screen: Deck,
+  Dashboard: {
+    screen: Dashboard,
   },
-  NewDeck: {
-    screen: NewDeck,
+  Deck: {
+    screen: DeckStack,
   }
 })
 
