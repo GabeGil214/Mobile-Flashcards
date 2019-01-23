@@ -3,15 +3,14 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from '../styles/stylesheet.js'
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
 import NewDeck from './NewDeck'
+import DeckPreview from './DeckPreview'
 
 class DeckList extends Component {
   render(){
      return (
       <View style={styles.container}>
         <View style={styles.deckContainer}>
-          <TouchableOpacity style={styles.deck} onPress={() => this.props.navigation.navigate('Deck')}>
-            <Text style={styles.deckTitle}>DECK</Text>
-          </TouchableOpacity>
+          <DeckPreview />
         </View>
       </View>
     )

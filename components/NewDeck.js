@@ -7,9 +7,12 @@ class NewDeck extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <Text>This is to Add a new Deck</Text>
+        <Text>Deck Title</Text>
+        <TextInput />
+        <Text>Description</Text>
+        <TextInput />
         <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('AddDeck')}>
-          <Text style={styles.btnText}>Add a New Deck</Text>
+          <Text style={styles.btnText}>Add Deck</Text>
         </TouchableOpacity>
       </View>
     )
