@@ -6,8 +6,15 @@ class NewCard extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <Text>This is a New Card</Text>
+        <Text>Card Question</Text>
+        <TextInput />
+        <Text>Card Answer</Text>
+        <TextInput />
+        <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('AddDeck')}>
+          <Text style={styles.btnText}>Add Card</Text>
+        </TouchableOpacity>
       </View>
+    )
     )
   }
 }
