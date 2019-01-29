@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput } from 'react-native';
 import styles from '../styles/stylesheet.js'
 
 class NewCard extends Component {
@@ -14,7 +14,6 @@ class NewCard extends Component {
           <Text style={styles.btnText}>Add Card</Text>
         </TouchableOpacity>
       </View>
-    )
     )
   }
 }

@@ -6,10 +6,10 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
 class DeckPreview extends Component {
   render(){
      return (
-        <TouchableOpacity style={styles.deck} onPress={() => this.props.navigation.navigate('Deck')}>
+        <View style={styles.deck}>
           <Text style={styles.deckTitle}>DECK</Text>
           <Text style={styles.deckSubtitle}>0 cards in deck</Text>
-        </TouchableOpacity>
+        </View>
     )
   }
 }
