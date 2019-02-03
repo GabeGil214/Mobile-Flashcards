@@ -19,6 +19,6 @@ export function addDeck(deck){
 export function removeDeck(deckID){
   return {
     type: REMOVE_DECK,
-    deck.
+    deckID
   }
 }
