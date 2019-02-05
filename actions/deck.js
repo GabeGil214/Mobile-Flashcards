@@ -1,10 +1,10 @@
-export const RETRIEVE_DECKS = 'RETRIEVE_DECKS'
+export const RECEIVE_DECKS = 'RECEIVE_DECKS'
 export const ADD_DECK = 'ADD_DECK'
 export const REMOVE_DECK = 'REMOVE_DECK'
 
-export function retrieveDecks(decks){
+export function receiveDecks(decks){
   return {
-    type: RETRIEVE_DECKS,
+    type: RECEIVE_DECKS,
     decks,
   }
 }

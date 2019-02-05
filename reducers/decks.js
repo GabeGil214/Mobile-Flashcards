@@ -1,8 +1,8 @@
-import { RETRIEVE_DECKS, ADD_DECK, REMOVE_DECK } from '../actions/deck'
+import { RECEIVE_DECKS, ADD_DECK, REMOVE_DECK } from '../actions/deck'
 
 export default function decks (state = {}, action) {
   switch(action.type) {
-    case RETRIEVE_DECKS :
+    case RECEIVE_DECKS :
       return {
         ...state,
         ...action.decks

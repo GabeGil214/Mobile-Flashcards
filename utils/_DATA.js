@@ -55,3 +55,16 @@ let cards = {
     deckID: 1
   },
 }
+
+
+export function _getDecks () {
+  return new Promise((res, rej) => {
+    setTimeout(() => res({...decks}), 1000)
+  })
+}
+
+export function _getCards () {
+  return new Promise((res, rej) => {
+    setTimeout(() => res({...cards}), 1000)
+  })
+}
