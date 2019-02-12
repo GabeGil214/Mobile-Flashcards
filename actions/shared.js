@@ -2,7 +2,7 @@ import { receiveDecks } from './deck'
 import { getInitialData } from '../utils/api'
 
 
-export function handleInitialData () {
+export default function handleInitialData () {
   return (dispatch) => {
     getInitialData()
     .then(({decks}) => {

@@ -11,19 +11,29 @@ class DeckList extends Component {
   }
 
   render(){
+    const { deckIds } = this.props
+
      return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.deckContainer} onPress={() => this.props.navigation.navigate('Deck')}>
-          <DeckPreview />
-        </TouchableOpacity>
+        {deckIds.map((deckID) => (
+          <TouchableOpacity
+            style={styles.deckContainer}
+            onPress={() => this.props.navigation.navigate('Deck', {
+              deckID: deckID
+            })}>
+            <DeckPreview deckID={deckID}/>
+          </TouchableOpacity>
+        ))}
       </View>
     )
   }
 }
 
 function mapStateToProps({decks}){
+  const deckIds = Object.keys(decks)
+
   return {
-    decks
+    deckIds
   }
 }
 

@@ -4,8 +4,9 @@ import Dashboard from './components/Dashboard';
 import { createStore } from 'redux';
 import reducer from './reducers';
 import { Provider } from 'react-redux';
+import middleware from './middleware'
 
-const store = createStore(reducer)
+const store = createStore(reducer, middleware)
 
 export default class App extends React.Component {
   render() {

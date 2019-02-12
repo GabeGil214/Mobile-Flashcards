@@ -1,4 +1,4 @@
-import { RETRIEVE_CARDS, ADD_CARD, REMOVE_CARD } from '../actions/CARD'
+import { RETRIEVE_CARDS, ADD_CARD, REMOVE_CARD } from '../actions/card'
 
 export default function cards (state = {}, action) {
   switch(action.type) {
