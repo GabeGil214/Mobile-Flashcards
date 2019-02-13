@@ -4,10 +4,6 @@ import {
 } from './_DATA.js'
 
 
-export function getInitialData () {
-  return Promise.all(
-    _getDecks()
-  ).then((decks) => ({
-    decks,
-  }))
+export function getInitialData() {
+  return _getDecks().then( decks => ({decks}))
 }
