@@ -10,10 +10,11 @@ export function retrieveCards(deckID, cards){
   }
 }
 
-export function addCard(card){
+export function addCard(card, deckID){
   return {
     type: ADD_CARD,
-    cardID,
+    ...card,
+    deckID,
   }
 }
 
