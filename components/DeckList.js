@@ -26,8 +26,8 @@ class DeckList extends Component {
                 deckID: deckID
               })}>
               <DeckPreview deckID={deckID}/>
-            </TouchableOpacity>      
-          )}
+            </TouchableOpacity>
+          )}/>
       </View>
     )
   }

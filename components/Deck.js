@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native';
-import styles from '../styles/stylesheet.js'
+import styles from '../styles/stylesheet.js';
+import { connect } from 'react-redux'
 
 class Deck extends Component {
   render(){
      return (
       <View style={styles.container}>
-        <Text>Here you can add cards to a deck or take a quiz!</Text>
+        <FlatList
+          data={CardIds}
+          renderItem={(cardID) => (
+            <TouchableOpacity
+              key={cardID}
+              style={styles.deckContainer}
+              onPress={() => this.props.navigation.navigate('Card', {
+                cardID: cardID
+              })}>
+              <CardPreview cardID={cardID}/>
+            </TouchableOpacity>
+          )}/>
         <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('NewCard')}>
           <Text style={styles.btnText}>Add Cards</Text>
         </TouchableOpacity>
@@ -18,4 +30,12 @@ class Deck extends Component {
   }
 }
 
-export default Deck
+function mapStateToProps({decks, cards},{deckID}){
+  const cardIds = decks[deckID].cards
+
+  return {
+    cardIds
+  }
+}
+
+export default connect(mapStateToProps)(Deck)
