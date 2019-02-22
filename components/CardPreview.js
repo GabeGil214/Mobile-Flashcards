@@ -17,10 +17,12 @@ class CardPreview extends Component {
 
 function mapStateToProps({ cards },{ cardID }){
     const currentCard = cards[cardID]
+    console.log(cards)
+    console.log(cardID)
 
     return {
       currentCard
     }
 }
 
-export defautl connect(mapStateToProps)(CardPreview)
+export default connect(mapStateToProps)(CardPreview)

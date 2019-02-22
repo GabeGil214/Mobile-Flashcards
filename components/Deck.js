@@ -1,14 +1,26 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, FlatList } from 'react-native';
 import styles from '../styles/stylesheet.js';
 import { connect } from 'react-redux'
+import CardPreview from './CardPreview'
 
 class Deck extends Component {
+
+  getCardIds(deckID){
+    const { decks } = this.props
+
+    return decks[deckID].cards
+
+  }
   render(){
+    const deckID = this.props.navigation.getParam('deckID')
+
+    const cardIds = this.getCardIds(deckID)
+
      return (
       <View style={styles.container}>
         <FlatList
-          data={CardIds}
+          data={cardIds}
           renderItem={(cardID) => (
             <TouchableOpacity
               key={cardID}
@@ -16,7 +28,7 @@ class Deck extends Component {
               onPress={() => this.props.navigation.navigate('Card', {
                 cardID: cardID
               })}>
-              <CardPreview cardID={cardID}/>
+              <CardPreview cardID={cardID.item}/>
             </TouchableOpacity>
           )}/>
         <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('NewCard')}>
@@ -30,11 +42,9 @@ class Deck extends Component {
   }
 }
 
-function mapStateToProps({decks, cards},{deckID}){
-  const cardIds = decks[deckID].cards
-
+function mapStateToProps({decks}){
   return {
-    cardIds
+    decks
   }
 }
 

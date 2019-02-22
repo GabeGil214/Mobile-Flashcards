@@ -5,5 +5,11 @@ import {
 
 
 export function getInitialData() {
-  return _getDecks().then( decks => ({decks}))
+  return Promise.all([
+    _getDecks(),
+    _getCards(),
+  ]).then(([decks, cards]) => ({
+    decks,
+    cards,
+  }))
 }

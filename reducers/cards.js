@@ -1,8 +1,8 @@
-import { RETRIEVE_CARDS, ADD_CARD, REMOVE_CARD } from '../actions/card'
+import { RECEIVE_CARDS, ADD_CARD, REMOVE_CARD } from '../actions/card'
 
 export default function cards (state = {}, action) {
   switch(action.type) {
-    case RETRIEVE_CARDS :
+    case RECEIVE_CARDS :
       return {
         ...state,
         ...action.cards

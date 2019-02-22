@@ -1,12 +1,12 @@
-export const RETRIEVE_CARDS = 'RETRIEVE_CARDS'
+export const RECEIVE_CARDS = 'RECEIVE_CARDS'
 export const ADD_CARD = 'ADD_CARD'
 export const REMOVE_CARD = 'REMOVE_CARD'
 
 
-export function retrieveCards(deckID, cards){
+export function receiveCards(cards){
   return {
-    type: RETRIEVE_CARDS,
-    deckID,
+    type: RECEIVE_CARDS,
+    cards,
   }
 }
 

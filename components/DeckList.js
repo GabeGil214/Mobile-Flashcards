@@ -12,8 +12,7 @@ class DeckList extends Component {
 
   render(){
     const { deckIds } = this.props
-    console.log(deckIds)
-
+    
      return (
       <View style={styles.container}>
         <FlatList
@@ -23,9 +22,9 @@ class DeckList extends Component {
               key={deckID}
               style={styles.deckContainer}
               onPress={() => this.props.navigation.navigate('Deck', {
-                deckID: deckID
+                deckID: deckID.item
               })}>
-              <DeckPreview deckID={deckID}/>
+              <DeckPreview deckID={deckID.item}/>
             </TouchableOpacity>
           )}/>
       </View>
