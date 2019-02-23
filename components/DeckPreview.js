@@ -9,10 +9,16 @@ class DeckPreview extends Component {
     const { deck } = this.props
 
      return (
+      <TouchableOpacity
+         style={styles.deckContainer}
+         onPress={() => this.props.navigation.navigate('Deck', {
+           deckID: deckID.item
+         })}>
         <View style={styles.deck}>
           <Text style={styles.deckTitle}>{deck.name}</Text>
           <Text style={styles.deckSubtitle}>{deck.cards.length} cards in deck</Text>
         </View>
+      </TouchableOpacity>
     )
   }
 }

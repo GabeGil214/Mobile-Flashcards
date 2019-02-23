@@ -6,12 +6,13 @@ import CardPreview from './CardPreview'
 
 class Deck extends Component {
 
-  getCardIds(deckID){
+  getCardIds = deckID => {
+
     const { decks } = this.props
 
     return decks[deckID].cards
-
   }
+
   render(){
     const deckID = this.props.navigation.getParam('deckID')
 
@@ -22,14 +23,10 @@ class Deck extends Component {
         <FlatList
           data={cardIds}
           renderItem={(cardID) => (
-            <TouchableOpacity
-              key={cardID}
-              style={styles.deckContainer}
-              onPress={() => this.props.navigation.navigate('Card', {
-                cardID: cardID
-              })}>
-              <CardPreview cardID={cardID.item}/>
-            </TouchableOpacity>
+            <CardPreview
+              key={cardID.item}
+              cardID={cardID.item}
+              />
           )}/>
         <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('NewCard')}>
           <Text style={styles.btnText}>Add Cards</Text>

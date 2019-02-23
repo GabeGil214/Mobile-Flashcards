@@ -30,6 +30,11 @@ const styles = StyleSheet.create({
   },
   deckTitle: {
     fontSize: 10
+  },
+  cardQuestion: {
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 

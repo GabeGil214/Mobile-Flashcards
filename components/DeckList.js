@@ -12,20 +12,15 @@ class DeckList extends Component {
 
   render(){
     const { deckIds } = this.props
-    
+
      return (
       <View style={styles.container}>
         <FlatList
           data={deckIds}
           renderItem={(deckID) => (
-            <TouchableOpacity
-              key={deckID}
-              style={styles.deckContainer}
-              onPress={() => this.props.navigation.navigate('Deck', {
-                deckID: deckID.item
-              })}>
-              <DeckPreview deckID={deckID.item}/>
-            </TouchableOpacity>
+              <DeckPreview
+                key={deckID.item}
+                deckID={deckID.item}/>
           )}/>
       </View>
     )
