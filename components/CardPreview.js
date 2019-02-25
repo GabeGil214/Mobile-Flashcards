@@ -4,22 +4,16 @@ import styles from '../styles/stylesheet.js';
 import { connect } from 'react-redux'
 
 class CardPreview extends Component {
-
-  state = {
-    showAnswer: false
+  constructor(props){
+    super(props)
+    this.state = {showAnswer: false}
   }
 
   toggleAnswer = () => {
-    if(this.state.showAnswer === false){
-      this.setState({
-        showAnswer: true
-      })
-    } else {
-        this.setState({
-          showAnswer: false
-        })
-      }
-    }
+    this.setState({
+      showAnswer: !this.state.showAnswer
+    })
+  }
 
   render(){
     const { currentCard } = this.props
@@ -27,18 +21,18 @@ class CardPreview extends Component {
     const { showAnswer } = this.state
 
      return (
-       <TouchableOpacity
-         style={styles.deckContainer}
-         onPress={this.toggleAnswer()}
-         >
          <View style={styles.card}>
-           {!showAnswer ?
-             <Text style={styles.cardQuestion}>{currentCard.question}</Text>
-             :
-             <Text style={styles.cardQuestion}>{currentCard.answer}</Text>
-           }
+           <TouchableOpacity
+             style={styles.deckContainer}
+             onPress={() => this.toggleAnswer()}
+             >
+             {!showAnswer
+              ? <Text style={styles.cardQuestion}>{currentCard.question}</Text>
+              :
+              <Text style={styles.cardQuestion}>{currentCard.answer}</Text>
+            }
+           </TouchableOpacity>
          </View>
-       </TouchableOpacity>
        )
      }
 }

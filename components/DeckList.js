@@ -18,9 +18,16 @@ class DeckList extends Component {
         <FlatList
           data={deckIds}
           renderItem={(deckID) => (
+            <TouchableOpacity
+               key={deckID.item}
+               style={styles.deckContainer}
+               onPress={() => this.props.navigation.navigate('Deck', {
+                 deckID: deckID.item
+               })}>
               <DeckPreview
                 key={deckID.item}
                 deckID={deckID.item}/>
+            </TouchableOpacity>
           )}/>
       </View>
     )

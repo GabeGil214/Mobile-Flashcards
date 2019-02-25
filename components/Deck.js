@@ -13,6 +13,8 @@ class Deck extends Component {
     return decks[deckID].cards
   }
 
+
+
   render(){
     const deckID = this.props.navigation.getParam('deckID')
 
@@ -23,12 +25,12 @@ class Deck extends Component {
         <FlatList
           data={cardIds}
           renderItem={(cardID) => (
-            <CardPreview
-              key={cardID.item}
-              cardID={cardID.item}
-              />
+              <CardPreview
+                key={cardID.item}
+                cardID={cardID.item}
+                />
           )}/>
-        <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('NewCard')}>
+        <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('NewCard', {deckID: deckID})}>
           <Text style={styles.btnText}>Add Cards</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn2} onPress={() => this.props.navigation.navigate('Quiz')}>
