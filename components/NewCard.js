@@ -6,10 +6,12 @@ import Form from 'react-native-form'
 
 class NewCard extends Component {
 
+  form = React.createRef()
+
   handleAddCard() {
     const { deckID } = this.props
-    console.log(this.refs)
-    console.log(this.props.navigation)
+    debugger
+    console.log(this.form)
     //const card = this.refs.form.getValues()
     //console.log(card)
     //this.props.dispatch(addCard(card, deckID))
@@ -18,7 +20,7 @@ class NewCard extends Component {
   render(){
     return (
         <View style={styles.container}>
-          <Form ref='form'>
+          <Form ref={this.form}>
             <View>
               <Text>Card Question</Text>
               <TextInput key='1' type="TextInput" name="question" />

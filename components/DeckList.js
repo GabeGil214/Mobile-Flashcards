@@ -19,7 +19,7 @@ class DeckList extends Component {
           data={deckIds}
           renderItem={(deckID) => (
             <TouchableOpacity
-               key={deckID.item}
+               key={deckID.item.toString()}
                style={styles.deckContainer}
                onPress={() => this.props.navigation.navigate('Deck', {
                  deckID: deckID.item

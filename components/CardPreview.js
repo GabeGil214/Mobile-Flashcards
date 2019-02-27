@@ -21,8 +21,9 @@ class CardPreview extends Component {
     const { showAnswer } = this.state
 
      return (
-         <View style={styles.card}>
+         <View key={currentCard.id.toString()} style={styles.card}>
            <TouchableOpacity
+             key={currentCard.id.toString()}
              style={styles.deckContainer}
              onPress={() => this.toggleAnswer()}
              >
@@ -39,8 +40,6 @@ class CardPreview extends Component {
 
 function mapStateToProps({ cards },{ cardID }){
     const currentCard = cards[cardID]
-    console.log(cards)
-    console.log(cardID)
 
     return {
       currentCard
