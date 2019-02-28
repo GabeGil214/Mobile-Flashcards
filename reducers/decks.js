@@ -17,6 +17,14 @@ export default function decks (state = {}, action) {
         ...state,
         //remove deck logic
       }
+    case ADD_CARD_TO_DECK:
+      return {
+        ...state,
+        [action.deck.id]: {
+          ...action.deck,
+          cards: action.deck.cards.concat([action.cardID])
+        }
+      }
     default:
       return state
   }

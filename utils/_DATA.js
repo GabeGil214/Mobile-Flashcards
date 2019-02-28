@@ -68,3 +68,42 @@ export function _getCards () {
     setTimeout(() => res({...cards}), 200)
   })
 }
+
+export function _saveAddCard ({question, answer, deckID}) {
+  return new Promise((res, rej) => {
+
+    const id = generateID()
+
+    const formattedCard = formatCard({question, answer, deckID})
+
+    setTimeout(() => {
+      cards = {
+        ...cards,
+        [formattedCard.id]: formattedCard
+      }
+
+      decks = {
+        ...decks,
+        [deckID]: {
+          ...decks[deckID],
+          cards: decks[deckID].cards.concat([formattedCard.id])
+        }
+      }
+
+      res({formattedCard})
+    )
+  })
+}
+
+function formatCard({question, answer, deckID}){
+  return {
+    id: generateID(),
+    question,
+    answer,
+    deckID,
+  }
+})
+
+export function _saveAddDeck(newDeck) {
+
+}

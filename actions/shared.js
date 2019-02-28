@@ -1,5 +1,5 @@
-import { receiveDecks } from './deck'
-import { receiveCards } from './card'
+import { receiveDecks, addCardtoDeck } from './deck'
+import { receiveCards, addCard } from './card'
 import { getInitialData } from '../utils/api'
 
 
@@ -11,4 +11,22 @@ export function handleInitialData () {
         dispatch(receiveCards(cards))
       })
   }
+}
+
+export function handleAddCard(question, answer, deckID){
+    return (dispatch) => {
+      const { decks } = getState()
+
+      const newCard = {
+        question,
+        answer,
+        deckID,
+      }
+
+      return saveAddCard(newCard)
+        .then(({formattedCard}) => {
+        dispatch(addCard(formattedCard, deckID))
+        dispatch(addCardtoDeck(decks[deckID], [formattedCard.id]))
+      })
+    }
 }

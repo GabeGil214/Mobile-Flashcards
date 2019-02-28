@@ -16,6 +16,14 @@ export function addDeck(deck){
   }
 }
 
+export function addCardtoDeck(deck, cardID){
+  return {
+    type: ADD_CARD_TO_DECK,
+    deck,
+    cardID
+  }
+}
+
 export function removeDeck(deckID){
   return {
     type: REMOVE_DECK,

@@ -13,8 +13,7 @@ export function receiveCards(cards){
 export function addCard(card, deckID){
   return {
     type: ADD_CARD,
-    ...card,
-    deckID,
+    card
   }
 }
 
