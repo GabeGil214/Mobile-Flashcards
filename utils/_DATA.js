@@ -108,7 +108,7 @@ export function _saveAddDeck(newDeck) {
     const formattedDeck = formatDeck(newDeck)
 
     setTimeout(() => {
-      
+
       decks = {
         ...decks,
         [formattedDeck.id]: formattedDeck
@@ -119,6 +119,25 @@ export function _saveAddDeck(newDeck) {
 
   })
 }
+
+export function _removeCard(cardID){
+  return new Promise((res,rej) => {
+    setTimeout(() => {delete cards[cardID]}
+    })
+  })
+}
+
+export function _removeDeck(deckID){
+  return new Promise((res,rej) => {
+    const cardsInDeck = decks[deckID].cards
+
+    cardsInDeck.map((currentCard) => {_removeCard(currentCard)})
+     
+    setTimeout(() => {delete decks[deckID]}
+    })
+  })
+}
+
 
 function formatDeck(name){
   return {
