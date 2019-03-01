@@ -30,3 +30,13 @@ export function handleAddCard(question, answer, deckID){
       })
     }
 }
+
+export function handleAddDeck(deckName){
+    return (dispatch) => {
+
+      return saveAddDeck(deckName)
+        .then(({formattedDeck}) => {
+        dispatch(addDeck(formattedDeck))
+      })
+    }
+}

@@ -72,8 +72,6 @@ export function _getCards () {
 export function _saveAddCard ({question, answer, deckID}) {
   return new Promise((res, rej) => {
 
-    const id = generateID()
-
     const formattedCard = formatCard({question, answer, deckID})
 
     setTimeout(() => {
@@ -91,7 +89,7 @@ export function _saveAddCard ({question, answer, deckID}) {
       }
 
       res({formattedCard})
-    )
+    }, 200)
   })
 }
 
@@ -105,5 +103,27 @@ function formatCard({question, answer, deckID}){
 })
 
 export function _saveAddDeck(newDeck) {
+  return new Promise((res,rej) => {
 
+    const formattedDeck = formatDeck(newDeck)
+
+    setTimeout(() => {
+      
+      decks = {
+        ...decks,
+        [formattedDeck.id]: formattedDeck
+      }
+
+      res(formattedDeck)
+    }, 200)
+
+  })
 }
+
+function formatDeck(name){
+  return {
+    id: generateID(),
+    name,
+    cards: []
+  }
+})
