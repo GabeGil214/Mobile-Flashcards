@@ -10,12 +10,12 @@ export default function cards (state = {}, action) {
     case ADD_CARD :
       return {
         ...state,
-        [action.cardID]: action.card
+        [action.card.id]: action.card
       }
     case REMOVE_CARD :
       return {
         ...state,
-        //remove CARD logic
+        [action.cardID]: undefined
       }
     default:
       return state

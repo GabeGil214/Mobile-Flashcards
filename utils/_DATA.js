@@ -56,6 +56,9 @@ let cards = {
   },
 }
 
+function generateRandomID () {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+}
 
 export function _getDecks () {
   return new Promise((res, rej) => {
@@ -95,12 +98,12 @@ export function _saveAddCard ({question, answer, deckID}) {
 
 function formatCard({question, answer, deckID}){
   return {
-    id: generateID(),
+    id: generateRandomID(),
     question,
     answer,
     deckID,
   }
-})
+}
 
 export function _saveAddDeck(newDeck) {
   return new Promise((res,rej) => {
@@ -122,27 +125,25 @@ export function _saveAddDeck(newDeck) {
 
 export function _removeCard(cardID){
   return new Promise((res,rej) => {
-    setTimeout(() => {delete cards[cardID]}
-    })
+    setTimeout(() => {delete cards[cardID]})
   })
 }
 
 export function _removeDeck(deckID){
   return new Promise((res,rej) => {
-    const cardsInDeck = decks[deckID].cards
+    const cardsInDeck = decks[deckID]['cards']
 
     cardsInDeck.map((currentCard) => {_removeCard(currentCard)})
-     
-    setTimeout(() => {delete decks[deckID]}
-    })
+
+    setTimeout(() => {delete decks[deckID]})
   })
 }
 
 
 function formatDeck(name){
   return {
-    id: generateID(),
+    id: generateRandomID(),
     name,
     cards: []
   }
-})
+}

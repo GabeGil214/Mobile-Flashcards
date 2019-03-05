@@ -10,10 +10,10 @@ export function receiveCards(cards){
   }
 }
 
-export function addCard(card, deckID){
+export function addCard(card){
   return {
     type: ADD_CARD,
-    card
+    card,
   }
 }
 

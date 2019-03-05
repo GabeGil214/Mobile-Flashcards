@@ -15,7 +15,7 @@ export default function decks (state = {}, action) {
     case REMOVE_DECK :
       return {
         ...state,
-        //remove deck logic
+        [action.deckID]: undefined
       }
     case ADD_CARD_TO_DECK:
       return {
