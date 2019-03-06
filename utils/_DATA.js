@@ -117,7 +117,7 @@ export function _saveAddDeck(newDeck) {
         [formattedDeck.id]: formattedDeck
       }
 
-      res(formattedDeck)
+      res({formattedDeck})
     }, 200)
 
   })

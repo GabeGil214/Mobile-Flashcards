@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 class NewCard extends Component {
 
-  handleAddCard(cardInfo) {
+  createNewCard(cardInfo) {
     const deckID = this.props.navigation.getParam('deckID')
 
     const newCard = {
@@ -27,7 +27,7 @@ class NewCard extends Component {
               <TextInput key='1' type="TextInput" name="question" />
               <Text>Card Answer</Text>
               <TextInput key='2' type="TextInput" name="answer" />
-              <TouchableOpacity style={styles.btn} onPress={() => this.handleAddCard(this.refs.form.getValues())}>
+              <TouchableOpacity style={styles.btn} onPress={() => this.createNewCard(this.refs.form.getValues())}>
                 <Text style={styles.btnText}>Add Card</Text>
               </TouchableOpacity>
             </View>

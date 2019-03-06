@@ -10,7 +10,7 @@ export default function decks (state = {}, action) {
     case ADD_DECK :
       return {
         ...state,
-        [action.deckID]: action.deck
+        [action.deck.id]: action.deck
       }
     case REMOVE_DECK :
       return {
